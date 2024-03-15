@@ -29,6 +29,7 @@ return [
     'upload_image' => 'Upload Image',
     'product_name' => 'Product Name',
     'product_id' => 'Product Id',
+    'feature_id' => 'Feature Id',
     'category_name' => 'Category Name',
     'category_id' => 'Category Id',
     'sub_category_name' => 'SubCategory Name',

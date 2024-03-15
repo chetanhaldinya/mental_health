@@ -138,9 +138,12 @@ Breadcrumbs::resource('categories', $mls->messageLanguage('only_name', 'category
 Breadcrumbs::resource('products', $mls->messageLanguage('only_name', 'product', 2));
 /*------------- Admin page Content  ------------------------*/
 Breadcrumbs::resource('page-contents', $mls->messageLanguage('only_name', 'page_content', 2));
-/*------------- Admin expert  ------------------------*/
-Breadcrumbs::resource('experts', $mls->messageLanguage('only_name', 'expert', 2));
-/*------------- Admin service  ------------------------*/
-Breadcrumbs::resource('services', $mls->messageLanguage('only_name', 'service', 2));
-/*------------- Admin faq  ------------------------*/
-Breadcrumbs::resource('faqs', $mls->messageLanguage('only_name', 'faq', 2));
+/*------------- Admin Banner ------------------------*/
+Breadcrumbs::resource('banners', $mls->messageLanguage('only_name', 'banner', 2));
+/*------------- Admin Catagory ------------------------*/
+Breadcrumbs::resource('catagories', $mls->messageLanguage('only_name', 'catagory', 2));
+/*------------- Admin Feature ------------------------*/
+Breadcrumbs::resource('features', $mls->messageLanguage('only_name', 'feature', 2));
+
+
+

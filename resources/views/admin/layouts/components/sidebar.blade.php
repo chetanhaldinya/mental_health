@@ -231,10 +231,10 @@
                     </div>
                     {{-- End::Page Content Section --}}
 
-                    {{-- Start::Expert Section --}}
+                    {{-- Start::Banner Section --}}
                     <div class="menu-item">
-                        <a class="menu-link {{ checkActiveSideBar(['experts']) ? 'menu-item active' : '' }}"
-                            href="{{ route('admin.experts.index') }}">
+                        <a class="menu-link {{ checkActiveSideBar(['banners']) ? 'menu-item active' : '' }}"
+                            href="{{ route('admin.banners.index') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
                                 <span class="svg-icon svg-icon-2">
@@ -255,15 +255,15 @@
                                 </span>
                                 <!--end::Svg Icon-->
                             </span>
-                            <span class="menu-title">{{ trans_choice('expert', 2) }}</span>
+                            <span class="menu-title">{{ trans_choice('content.sidebar.banner', 2) }}</span>
                         </a>
                     </div>
-                    {{-- End::expert Section --}}
+                    {{-- End::Banner Section --}}
 
-                    {{-- Start::service Section --}}
+                    {{-- Start::Catagory Section --}}
                     <div class="menu-item">
-                        <a class="menu-link {{ checkActiveSideBar(['services']) ? 'menu-item active' : '' }}"
-                            href="{{ route('admin.services.index') }}">
+                        <a class="menu-link {{ checkActiveSideBar(['catagories']) ? 'menu-item active' : '' }}"
+                            href="{{ route('admin.catagories.index') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
                                 <span class="svg-icon svg-icon-2">
@@ -284,15 +284,15 @@
                                 </span>
                                 <!--end::Svg Icon-->
                             </span>
-                            <span class="menu-title">{{ trans_choice('service', 2) }}</span>
+                            <span class="menu-title">{{ trans_choice('content.sidebar.catagory', 2) }}</span>
                         </a>
                     </div>
-                    {{-- End::service Section --}}
+                    {{-- End::Catagory Section --}}
 
-                    {{-- Start::faq Section --}}
+                    {{-- Start::Feature Section --}}
                     <div class="menu-item">
-                        <a class="menu-link {{ checkActiveSideBar(['faqs']) ? 'menu-item active' : '' }}"
-                            href="{{ route('admin.faqs.index') }}">
+                        <a class="menu-link {{ checkActiveSideBar(['features']) ? 'menu-item active' : '' }}"
+                            href="{{ route('admin.features.index') }}">
                             <span class="menu-icon">
                                 <!--begin::Svg Icon | path: icons/duotone/General/User.svg-->
                                 <span class="svg-icon svg-icon-2">
@@ -313,10 +313,11 @@
                                 </span>
                                 <!--end::Svg Icon-->
                             </span>
-                            <span class="menu-title">{{ trans_choice('faq', 2) }}</span>
+                            <span class="menu-title">{{ trans_choice('content.sidebar.feature', 2) }}</span>
                         </a>
                     </div>
-                    {{-- End::faqs Section --}}
+                    {{-- End::Page Content Section --}}
+
                 </div>
                 <!--end::Menu-->
             </div>

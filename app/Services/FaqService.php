@@ -3,15 +3,13 @@
 namespace App\Services;
 
 use App\Models\Faq;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class FaqService
 {
     /**
-     * Update the specified resource in storage.
+     * Create the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  array $data
      * @return Faq
      */
     public static function create(array $data)
@@ -21,10 +19,23 @@ class FaqService
     }
 
     /**
-     * Get the specified resource in storage.
+     * Update the specified resource in storage.
      *
-     * @param int $id
-     * @return  App\Models\Faq
+     * @param  Array $data - Updated Data
+     * @param  Faq $faq
+     * @return Faq
+     */
+    public static function update(array $data, Faq $faq)
+    {
+        $data = $faq->update($data);
+        return $data;
+    }
+
+    /**
+     * Get Data By Id from storage.
+     *
+     * @param  Int $id
+     * @return Faq
      */
     public static function getById($id)
     {
@@ -33,98 +44,79 @@ class FaqService
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update Data By Id in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
+     * @param  Int $id
+     * @return Faq
      */
-    public static function update(array $data, $id)
+    public static function updateById(array $data, $id)
     {
         $data = Faq::where('id', $id)->update($data);
         return $data;
     }
 
     /**
-     * update status.
+     * Remove the specified resource from storage.
      *
-     * @param Array $data
-     * @param int $id
+     * @param  App\Models\Faq
      * @return bool
      */
-    public static function status(array $data, $id)
-    {
-        $data = Faq::where('id', $id)->update($data);
-        return $data;
-    }
-
-    /**
-     * Delete data by contact_us.
-     *
-     * @param Faq
-     * @return bool
-     */
-    public static function delete($faq)
+    public static function delete(Faq $faq)
     {
         $data = $faq->delete();
         return $data;
     }
+
     /**
-     * Get the specified resource in storage.
+     * Remove the specified id from storage.
      *
-     * @param int $id
-     * @return  App\Models\Faq
+     * @param  $id
+     * @return bool
      */
-    public static function datatable()
+    public static function deleteById($id)
+    {
+        $result = false;
+        $data = self::getById($id);
+        if($data){
+            $result = $data->delete();
+        }
+        return $result;
+    }
+
+    public static function getList()
     {
         $data = Faq::query();
         return $data;
     }
 
-    /**
-     * Get the specified resource in storage.
-     *
-     * @param int $slug
-     * @return  App\Models\Faq
-     */
-    public static function getBySlug($slug)
+    public static function getActiveDescSortedList()
     {
-        $data = Faq::where('slug', $slug)->first();
+        $data = Faq::query()->where('is_active', 1)->orderBy('created_at', 'desc');
         return $data;
     }
 
-    public static function search(Request $request, $items)
+    public static function getAnsweredActiveSortedList()
     {
-        if (isset($request->question)) {
-            $items = $items->where('question', 'like', "%{$request->question}%");
-        }
-        if (isset($request->answer)) {
-            $items = $items->where('answer', 'like', $request->answer);
-        }
-        if (isset($request->id)) {
-            $items = $items->where('id', $request->id);
-        }
-        if (isset($request->status)) {
-            $items = $items->where('is_active', $request->status);
-        }
-        return $items;
+        $data = Faq::query()->whereIsActive(1)->whereIsAnswered(1)
+        ->orderByDesc('created_at');
+        return $data;
+    }
+
+    public static function getUnAnsweredActiveSortedList()
+    {
+        $data = Faq::query()->whereIsActive(1)->whereIsAnswered(0)
+        ->orderByDesc('created_at');
+        return $data;
     }
 
     /**
-     * Get data for download Report from storage.
+     * Get data for datatable from storage.
      *
-     * @return Faq
+     * @return Faq with states, countries
      */
-    public static function downloadFaqReport()
+    public static function datatable()
     {
-        $data = Faq::query()
-            ->select(
-                'id',
-                'question',
-                'answer',
-                DB::raw("(CASE WHEN (is_active = 1) THEN 'Active' ELSE 'Inactive' END) as status"),
-                DB::raw("(DATE_FORMAT(created_at,'%d-%M-%Y')) as created_date"),
-                DB::raw("(DATE_FORMAT(updated_at,'%d-%M-%Y')) as updated_date"),
-            )->orderBy('created_at', 'desc');
+        $data = Faq::query();
         return $data;
     }
 }

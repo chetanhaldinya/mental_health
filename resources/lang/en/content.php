@@ -104,8 +104,9 @@ return [
         'customer' => 'Customer|Customers',
         'product' => 'Product|Products',
         'page_content' => 'Page Contents',
-        'expert' => 'Expert|Experts',
-        'service'=>'Service|Services',
+        'banner' => 'Banner|Banners',
+        'catagory' => 'Catagory|Catagories',
+        'feature' => 'Feature|Features',
     ),
 
 
@@ -119,6 +120,12 @@ return [
         'quantity_title' => 'Quantity',
         'price_title' => 'Price',
         'import_product' => 'Import Product',
+    ),
+
+    //Features Manager
+    'features' =>array(
+        'title'=>'Title',
+        'id' =>'Id',
     ),
 
     //Table Title
@@ -185,6 +192,9 @@ return [
     'customer_product_history' => 'Customer Product History|Customer Product Histories',
     'product' => 'Product|Products',
     'page_content' => 'Page Contents',
+    'banner' => 'Banners',
+    'catagory' => 'Catagories',
+    'feature' => 'Features',
 
     'user_id' => 'User Id',
     'customer_id' => 'Customer Id',
@@ -195,23 +205,14 @@ return [
 
     'content_title' => 'Content',
     'slug_title' => 'Slug',
-
-    'expert' => 'Experts',
-    'name' => 'Name',
-    'sername' => 'Sername',
-    'gender' => 'Gender',
-    'about' => 'About',
-    'designation' => 'Designation',
-    'qualification' => 'Qualification',
+    'heading' => 'Heading',
     'image' => 'Image',
-    'fees' => 'Fees',
+    'paragraph' => 'Paragraph',
+    'title' => 'Title',
+    'description' => 'Description',
+    'banner_id' => 'Banner Id',
+    'catagory_id' => 'Catagory Id',
 
-    'service'=>'Service',
-    'title'=>'Title',
-    'image'=>'Image',
 
-    'faq'=>'Faq|Faqs',
-    'question_title'=>'Question|Questions',
-    'answer_title'=>'Answer|Answers',
-    'is_active'=>'Is_Active'
+
 ];

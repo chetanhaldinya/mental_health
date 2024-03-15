@@ -4,6 +4,10 @@ use App\Http\Controllers\Admin\AdminErrorPageController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CatagoryController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -87,21 +91,36 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('/page-contents/status/{id}/{status}', 'PageContentController@status');
         Route::resource('page-contents', PageContentController::class);
 
-       //Admin expert
-       Route::get('/experts/status/{expert}/{status}', 'ExpertController@status');
-       Route::resource('experts', ExpertController::class);
+        //Admin Banner
+        Route::controller(BannerController::class)->group(function () {
+            Route::get('/banners/status/{banner}/{status}', 'BannerController@status');
+            Route::post('/banners/download', 'export')->name('banners.download');
+        });
+        Route::resource('banners', BannerController::class);
 
-         //Admin Service
-         Route::get('/services/status/{service}/{status}', 'ServiceController@status');
-         Route::resource('services', ServiceController::class);
+        //Admin Category
+        // Route::get('/categories/status/{id}/{status}', 'CategoryController@status');
+        // Route::resource('categories', CategoryController::class);
 
-         //Admin faq
-         Route::controller(FaqController::class)->group(function () {
-            Route::get('/faqs/status/{id}/{status}', 'FaqController@status');
-            Route::post('/faqs/download','export')->name('faqs.download');
-         });
-         Route::resource('faqs', FaqController::class);
-   
- 
+        //Admin Catagory
+        Route::controller(CatagoryController::class)->group(function () {
+            Route::get('/catagories/status/{catagory}/{status}', 'CatagoryController@status');
+            Route::post('/catagories/download', 'export')->name('catagories.download');
+        });
+        Route::resource('catagories', CatagoryController::class);
+
+        //Admin Feature
+        
+        Route::controller(FeatureController::class)->group(function () {
+            Route::get('/features/status/{feature}/{status}', 'FeatureController@status');
+            Route::post('/features/download', 'export')->name('features.download');
+        });
+        Route::resource('features', FeatureController::class);
+
+
+
+
+    
     });
+        
 });

@@ -35,7 +35,7 @@ return [
     ],
 
     'img' => [
-        'local_img_url' => env('APP_URL') . "/storage/",
+        'local_img_url' => env('APP_URL') . '/storage/',
     ],
 
     'img_size' => [

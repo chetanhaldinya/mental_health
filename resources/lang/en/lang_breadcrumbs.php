@@ -35,9 +35,8 @@ return [
     'profile' => 'Profile',
     'product' => 'Product|Products',
     'page_content' => 'Page Contents',
-    'expert' => 'Experts',
-    'service' => 'Services',
-    'faq'=>'Faqs',
-
+    'banner' => 'Banner|Banners',
+    'catagory' => 'Catagory|Catagories',
+    'feature' => 'Feature|Features',
 
 ];

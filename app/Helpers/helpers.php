@@ -483,15 +483,6 @@ function oddFilter($x)
     return false;
 }
 
-function statusArray()
-{
-   $data = [
-    0 => 'Inactive',
-    1 => 'Active',
-   ];
-    return $data;
-}
-
 function getReqResponseTime()
 {
     $startTime = defined('LARAVEL_START') ? LARAVEL_START : request()->server('REQUEST_TIME_FLOAT');

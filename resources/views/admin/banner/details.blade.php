@@ -1,8 +1,8 @@
 @extends('admin.layouts.base')
 @section('content')
     @include('admin.layouts.components.header', [
-        'title' => __('messages.detail', ['name' => trans_choice('content.page_content', 1)]),
-        'breadcrumbs' => Breadcrumbs::render('admin.page_contents.show'),
+        'title' => __('messages.detail', ['name' => trans_choice('content.banner', 1)]),
+        'breadcrumbs' => Breadcrumbs::render('admin.banners.show'),
     ])
 
     <!--begin::Post-->
@@ -22,19 +22,26 @@
                         <div class="row mb-5">
                             <div class="row mb-5">
                                 <div class="col-md-6 fv-row">
-                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.title_title', 1) }}
-                                    </div>
-                                    <div class="fs-5 text-gray-600">{{ $page_content->title }}</div>
-                                </div>
-                                <div class="col-md-6 fv-row">
-                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.slug_title', 1) }}</div>
-                                    <div class="fs-5 text-gray-600">{{ $page_content->slug }}</div>
+                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.heading', 1) }} </div>
+                                    <div class="fs-5 text-gray-600">{{ $banner->heading }}</div>
                                 </div>
                             </div>
                             <div class="row mb-5">
                                 <div class="col-md-6 fv-row">
-                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.content_title', 1) }}</div>
-                                    <div class="fs-5 text-gray-600">{!! $page_content->content !!}</div>
+                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.paragraph', 1) }}</div>
+                                    <div class="fs-5 text-gray-600">{!! $banner->paragraph !!}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-md-6 fv-row">
+                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.image', 1) }}</div>
+                                    <div class="fs-5 text-gray-600">{{ $banner->image }}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-md-6 fv-row">
+                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.status_title', 1) }} </div>
+                                    <div class="fs-5 text-gray-600">{{ $banner->is_active }}</div>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +52,7 @@
                     <!--begin::Actions-->
                     <div class="card-footer d-flex justify-content-end py-6 px-9">
                         <button type="button" class="btn btn-primary">
-                            <a href="{{ route('admin.page-contents.index') }}"
+                            <a href="{{ route('admin.banners.index') }}"
                                 class="text-white">{{ __('content.back_title') }}</a>
                         </button>
                     </div>

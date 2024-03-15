@@ -1,8 +1,8 @@
 @extends('admin.layouts.base')
 @section('content')
     @include('admin.layouts.components.header', [
-        'title' => __('messages.detail', ['name' => trans_choice('content.page_content', 1)]),
-        'breadcrumbs' => Breadcrumbs::render('admin.page_contents.show'),
+        'title' => __('messages.detail', ['name' => trans_choice('content.feature', 1)]),
+        'breadcrumbs' => Breadcrumbs::render('admin.features.show'),
     ])
 
     <!--begin::Post-->
@@ -22,19 +22,20 @@
                         <div class="row mb-5">
                             <div class="row mb-5">
                                 <div class="col-md-6 fv-row">
-                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.title_title', 1) }}
-                                    </div>
-                                    <div class="fs-5 text-gray-600">{{ $page_content->title }}</div>
-                                </div>
-                                <div class="col-md-6 fv-row">
-                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.slug_title', 1) }}</div>
-                                    <div class="fs-5 text-gray-600">{{ $page_content->slug }}</div>
+                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.title', 1) }} </div>
+                                    <div class="fs-5 text-gray-600">{{ $feature->title }}</div>
                                 </div>
                             </div>
                             <div class="row mb-5">
                                 <div class="col-md-6 fv-row">
-                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.content_title', 1) }}</div>
-                                    <div class="fs-5 text-gray-600">{!! $page_content->content !!}</div>
+                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.status_title', 1) }} </div>
+                                    <div class="fs-5 text-gray-600">{{ $feature->is_active }}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-5">
+                                <div class="col-md-6 fv-row">
+                                    <div class="fs-5 fw-bold mb-2">{{ trans_choice('content.joined_date_title', 1) }} </div>
+                                    <div class="fs-5 text-gray-600">{{ $feature->created_at }}</div>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +46,7 @@
                     <!--begin::Actions-->
                     <div class="card-footer d-flex justify-content-end py-6 px-9">
                         <button type="button" class="btn btn-primary">
-                            <a href="{{ route('admin.page-contents.index') }}"
+                            <a href="{{ route('admin.features.index') }}"
                                 class="text-white">{{ __('content.back_title') }}</a>
                         </button>
                     </div>
