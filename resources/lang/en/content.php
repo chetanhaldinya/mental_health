@@ -121,6 +121,16 @@ return [
         'import_product' => 'Import Product',
     ),
 
+     //Products Manager
+     'faqs' => array(
+        'faq'=>'Faq|Faqs',
+        'question_title'=>'Question|Questions',
+        'question'=>'Question',
+        'answer_title'=>'Answer|Answers',
+        'answer'=>'Answer',
+        'is_active'=>'Is_Active'
+    ),
+
     //Table Title
     'id_title' => 'ID',
     'name_title' => 'Name|Names',

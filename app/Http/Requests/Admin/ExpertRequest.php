@@ -23,7 +23,7 @@ class ExpertRequest extends FormRequest
      */
     public function rules()
     {
-      
+        if (!request()->is('admin/experts/create')) {
             return [
                 'name' => 'required|alpha_spaces',
                 'surname' => 'required|alpha_spaces',
@@ -31,9 +31,21 @@ class ExpertRequest extends FormRequest
                 'about' => 'required|min:20|max:200',
                 'designation' => 'required',
                 'qualification' => 'required',
-                'image' => 'required',
+                'image' => 'nullable|image',
                 'fees' => 'required|max:10',
             ];
+        } else {
+            return [
+                'name' => 'required|alpha_spaces',
+                'surname' => 'required|alpha_spaces',
+                'gender' => 'required',
+                'about' => 'required|min:20|max:200',
+                'designation' => 'required',
+                'qualification' => 'required',
+                'image' => 'required|image',
+                'fees' => 'required|max:10',
+            ];
+        }
       
     }
 

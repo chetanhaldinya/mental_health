@@ -84,4 +84,28 @@ return [
         'name' => 'Name',
         'status' => 'Status',
     ),
+
+    
+    'expert' => 'Experts',
+    'name' => 'Name',
+    'sername' => 'Sername',
+    'gender' => 'Gender',
+    'about' => 'About',
+    'designation' => 'Designation',
+    'qualification' => 'Qualification',
+    'image' => 'Image',
+    'fees' => 'Fees',
+
+
+    'service'=>'Service',
+    'title'=>'Title',
+    'image'=>'Image',
+
+
+    //faq manger
+    'faq'=>'Faq',
+    'question'=>'Question',
+    'answer'=>'Answer',
+    'is_active'=>'Is_Active'
+   
 ];

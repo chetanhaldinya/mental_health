@@ -4,7 +4,7 @@
     <div class="row mb-6">
        
         <!--begin::Col-->
-        <div class="col-lg-6 fv-row">
+        <div class="col-lg-4 fv-row">
              <!--begin::Label-->
         <label
             class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('content.name', 1) }}</label>
@@ -15,21 +15,19 @@
         <!--end::Col-->
 
          <!--begin::Col-->
-         <div class="col-lg-6 fv-row">
+         <div class="col-lg-4 fv-row">
              <!--begin::Label-->
         <label
-            class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('surname', 1) }}</label>
+            class="col-form-label required fw-bold fs-6">{{ trans_choice('surname', 1) }}</label>
         <!--end::Label-->
             {!! Form::text('surname', null, ['placeholder' => __('placeholder.surname'), 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'required' => 'required']) !!}
         </div>
 
         <!--end::Col-->
-    </div>
-    <!--end::Input group-->
-
-    <div class="row mb-6">
+        <div class="col-lg-4 fv-row">
+        <div class="row mb-6">
       <!--begin::Label-->
-      <label class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('gender', 1) }}</label>
+      <label class="col-form-label required fw-bold fs-6">{{ trans_choice('gender', 1) }}</label>
        <!--end::Label-->    
     <!--begin::Col-->
     <div class="col-lg-10 fv-row">
@@ -47,27 +45,15 @@
     </div>
     <!--end::Col-->
 </div>
+        </div>
+    </div>
+    <!--end::Input group-->
+
+
 
     
 
-    <!--begin::Input group-->
-    <div class="row mb-6">
-        <!--begin::Label-->
-        <label
-            class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('content.about', 1) }}</label>
-        <!--end::Label-->
-        <!--begin::Col-->
-        <div class="col-lg-10 fv-row">
-            {!! Form::textarea('about', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0 ckeditor', 'id' => 'ckeditor', 'rows' => 3, 'cols' => 40, 'placeholder' => __('placeholder.about')]) !!}
-            @if ($errors->has('about'))
-                <span style="color:red">{{ $errors->first('about') }}</span>
-            @endif
-        </div>
-
-        {{-- <span style="color:#f1416c" id='content_error'></span> --}}
-        <!--end::Col-->
-    </div>
-    <!--end::Input group-->
+  
 
     <!--begin::Input group-->
     <div class="row mb-6">
@@ -137,6 +123,25 @@
      <div class="row mb-6">
         
        
+    </div>
+    <!--end::Input group-->
+
+      <!--begin::Input group-->
+      <div class="row mb-6">
+        <!--begin::Label-->
+        <label
+            class="col-lg-2 col-form-label required fw-bold fs-6">{{ trans_choice('content.about', 1) }}</label>
+        <!--end::Label-->
+        <!--begin::Col-->
+        <div class="col-lg-10 fv-row">
+            {!! Form::textarea('about', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0 ckeditor', 'id' => 'ckeditor', 'rows' => 3, 'cols' => 40, 'placeholder' => __('placeholder.about')]) !!}
+            @if ($errors->has('about'))
+                <span style="color:red">{{ $errors->first('about') }}</span>
+            @endif
+        </div>
+
+        {{-- <span style="color:#f1416c" id='content_error'></span> --}}
+        <!--end::Col-->
     </div>
     <!--end::Input group-->
     

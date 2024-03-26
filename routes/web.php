@@ -98,10 +98,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
          //Admin faq
          Route::controller(FaqController::class)->group(function () {
             Route::get('/faqs/status/{id}/{status}', 'FaqController@status');
-            Route::post('/faqs/download','export')->name('faqs.download');
+            Route::post('/faqs/download','export')->name('faqs.download');  
          });
          Route::resource('faqs', FaqController::class);
-   
- 
     });
 });

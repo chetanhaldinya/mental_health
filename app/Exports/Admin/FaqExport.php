@@ -36,7 +36,7 @@ class FaqExport implements FromQuery, WithHeadings, ShouldAutoSize, WithStyles
     public function headings(): array
     {
         return [
-            'Faq_Id',
+            'Id',
             'Question',
             'Answer',
             'Status',

@@ -100,9 +100,6 @@ class FaqService
         if (isset($request->answer)) {
             $items = $items->where('answer', 'like', $request->answer);
         }
-        if (isset($request->id)) {
-            $items = $items->where('id', $request->id);
-        }
         if (isset($request->status)) {
             $items = $items->where('is_active', $request->status);
         }

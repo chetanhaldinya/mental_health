@@ -91,7 +91,7 @@
                                         <img src="{{isset($expert->image) ? $expert->image : 'Na'}}" height="150px" width="350px" alt="blog image">
                                   </div></a></div>
                                 </div>
-                                </div>
+                            </div>
 
                                  <!--begin::Input group-->
                           <div class="row mb-5">

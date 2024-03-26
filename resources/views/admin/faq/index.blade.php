@@ -37,21 +37,6 @@
         <!--begin::Input group-->
         <div class="row mb-6">
             <!--begin::Label-->
-            <label class="col-lg-4 col-form-label fw-bold fs-6">
-                <span class="required">{{ trans_choice('content.faqs.id', 1) }}</span>
-            </label>
-            <!--end::Label-->
-            <!--begin::Col-->
-            <div class="col-lg-8 fv-row">
-                {!! Form::text('faq_id', null, ['placeholder' => __('placeholder.faq_id'), 'class' => 'form-control form-control-lg form-control-solid only_number search_input']) !!}
-            </div>
-            <!--end::Col-->
-        </div>
-        <!--end::Input group-->
-
-        <!--begin::Input group-->
-        <div class="row mb-6">
-            <!--begin::Label-->
             <label class="col-lg-4 col-form-label fw-bold fs-6">{{ trans_choice('content.status_title', 1) }}</label>
             <!--end::Label-->
             <!--begin::Input-->
@@ -151,7 +136,6 @@
                     data: function(d) {
                         d.question = $('input[name=question]').val();
                         d.answer = $('input[name=answer]').val();
-                        d.faq_id = $('input[name=faq_id]').val();
                         d.status = $('select[name=status]').val();
                     },
                 },

@@ -23,10 +23,17 @@ class ServiceRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|alpha_spaces',
-            'image' => 'required',
-        ];
+        if (!request()->is('admin/services/create')) {
+            return [
+                'title' => 'required|alpha_spaces|max:20',
+                'image' => 'nullable|image',
+            ];
+        } else {
+            return [
+                'title' => 'required|alpha_spaces|max:20',
+                'image' => 'required|image',
+            ];
+        }
     }
 
 
