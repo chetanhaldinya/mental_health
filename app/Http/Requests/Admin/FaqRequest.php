@@ -22,22 +22,12 @@ class FaqRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {
-
-        if (!request()->is('admin/faqs/create')) {
+    { 
             return [
                 'question' => 'required|alpha_spaces|max:100',
                 'answer' => 'required|alpha_spaces|max:100',
                 'is_active' => 'required',
-            ];
-        } else {
-            return [
-                'question' => 'required|alpha_spaces|max:100',
-                'answer' => 'required|alpha_spaces|max:100',
-                'is_active' => 'required',
-            ];
-        }
-       
+            ]; 
     }
 
 

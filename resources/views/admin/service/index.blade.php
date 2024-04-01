@@ -133,7 +133,7 @@
                             var edit_data = actionEditButton(edit_url, row['id']);
                             var show_data = actionShowButton(show_url);
                             var del_data = actionDeleteButton(row['id']);
-                            return `<div class="flex justify-left items-center"> ${edit_data} ${del_data}</div>`;
+                            return `<div class="flex justify-left items-center"> ${edit_data} ${del_data}  ${show_data}</div>`;
 
                         }
                     },

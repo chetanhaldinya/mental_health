@@ -24,7 +24,7 @@
             // console.log('valid');
             var btn = document.getElementById("submitBtn");
             btn.innerHTML = "<i class='fa fa-spinner fa-spin'></i> Please wait...";
-            form.submitBtn.disabled = true;
+            form.submitBtn.disabled = true;         
             return true;
         }
         // console.log('invalid');

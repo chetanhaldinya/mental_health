@@ -10,6 +10,7 @@
         <div class="col-lg-10 fv-row">
             {!! Form::select('is_active', statusArray(), null, [
             'placeholder' => trans_choice('content.please_select', 1),
+            'id' => 'is_active',
             'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0',
         ]) !!}
            </div>
@@ -24,7 +25,7 @@
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-10 fv-row">
-            {!! Form::text('question', null, ['placeholder' => __('placeholder.question'), 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'required' => 'required']) !!}
+            {!! Form::text('question', null, ['placeholder' => __('placeholder.question'),'id' => 'question', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'required' => 'required']) !!}
         </div>
 
         <!--end::Col-->
@@ -39,7 +40,7 @@
         <!--end::Label-->
         <!--begin::Col-->
         <div class="col-lg-10 fv-row">
-            {!! Form::text('answer', null, ['placeholder' => __('placeholder.answer'), 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'required' => 'required']) !!}
+            {!! Form::text('answer', null, ['placeholder' => __('placeholder.answer'), 'id' => 'answer', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'required' => 'required']) !!}
         </div>
 
         <!--end::Col-->
@@ -65,4 +66,35 @@
             }
         });
     </script> --}}
+    <script>
+   $(document).ready(function(){
+      $("#submitBtn").click(function (e) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        e.preventDefault();
+        var formData ={
+            question: $('#question').val(),
+            answer: $('#answer').val(),
+            is_active: $('#is_active').val(),
+        };
+        var type = "POST";
+        var ajaxurl = "{{route('admin.faqs.store')}}";
+        $.ajax({
+            type: type,
+            url: ajaxurl,
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+                window.location.href = "{{ route('admin.faqs.index') }}";
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+    });
+   });
+</script>
 @endpush

@@ -101,5 +101,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::post('/faqs/download','export')->name('faqs.download');  
          });
          Route::resource('faqs', FaqController::class);
+
+
     });
 });

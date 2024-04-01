@@ -27,11 +27,13 @@ class ServiceRequest extends FormRequest
             return [
                 'title' => 'required|alpha_spaces|max:20',
                 'image' => 'nullable|image',
+                'is_active' => 'required',
             ];
         } else {
             return [
                 'title' => 'required|alpha_spaces|max:20',
                 'image' => 'required|image',
+                'is_active' => 'required',
             ];
         }
     }

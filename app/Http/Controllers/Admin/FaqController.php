@@ -80,10 +80,10 @@ class FaqController extends Controller
      */
     public function store(FaqRequest $request)
     {
-        $input = $request->except(['_token', 'proengsoft_jsvalidation']);
+        $input = $request->validated();
         $faq = $this->faqService->create($input);
         return redirect()->route($this->index_route)
-            ->with('success', $this->mls->messageLanguage('created', 'faq', 1));
+        ->with('success', $this->mls->messageLanguage('created', 'faq', 1));
     }
 
     /**
